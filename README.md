@@ -1,54 +1,34 @@
-# React + TypeScript + Vite
+# Zadanie rekrutacyjne
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠️ Stack: React 19 + TypeScript + Vite 
 
-Currently, two official plugins are available:
+## 🌟 Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplikacja jest dostępna pod adresem: **[zadanie-rekrutacyjne](https://zadanie-rekrutacyjne-maciejkrzyzowskis-projects.vercel.app/)**.
 
-## Expanding the ESLint configuration
+## 🚀 Instalacja
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Sklonuj repozytorium**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+   ```sh
+   git clone https://github.com/maciej-krzyzowski/zadanie-rekrutacyjne.git
+   cd zadanie-rekrutacyjne
+   ```
+
+2. **Zainstaluj zależności**
+
+   ```sh
+   pnpm install
+   ```
+
+## 🔥 Uruchomienie projektu
+
+Aby uruchomić projekt w trybie deweloperskim, użyj komendy:
+
+```sh
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Aplikacja będzie dostępna pod adresem: **[http://localhost:5173/](http://localhost:5173/)** (domyślnie).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🎉 Gotowe!
