@@ -1,5 +1,7 @@
+import { View } from "@/components/View";
+
 const App = () => {
-  return <div>App</div>;
+  return <View />;
 };
 
 export default App;
