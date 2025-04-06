@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Card } from "@/components/ui/card";
+import { ScheduleModal } from "@/components/ScheduleModal";
 import { ScheduleCardHeader } from "@/components/ScheduleCardHeader";
 import { ScheduleCardContent } from "@/components/ScheduleCardContent";
 
@@ -11,7 +12,7 @@ export type ScheduleFormType = {
 };
 
 export const ScheduleCard = () => {
-  const [isSchedulerOpen, setIsSchedulerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const form = useForm<ScheduleFormType>({
     defaultValues: {
@@ -25,6 +26,11 @@ export const ScheduleCard = () => {
     console.log("Formularz wysłany:", data);
   };
 
+  const handleScheduleSet = (cronPattern: string) => {
+    form.setValue("schedule", cronPattern);
+    setModalOpen(false);
+  };
+
   const handleCloseForm = () => {
     console.log("work in progress");
   };
@@ -36,10 +42,19 @@ export const ScheduleCard = () => {
         handleClose={handleCloseForm}
         handleSave={form.handleSubmit(onSubmit)}
       />
+
       <ScheduleCardContent
         form={form}
-        handleOpenModal={() => setIsSchedulerOpen(true)}
+        handleOpenModal={() => setModalOpen(true)}
       />
+
+      {modalOpen && (
+        <ScheduleModal
+          initialValue={form.getValues("schedule")}
+          handleSave={handleScheduleSet}
+          handleClose={() => setModalOpen(false)}
+        />
+      )}
     </Card>
   );
 };
