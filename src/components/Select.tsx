@@ -6,13 +6,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+type OptionObjectType = {
+  number: string | number;
+  name: string;
+};
+
 export const Select = ({
   options,
   value,
   onValueChange,
   disabled,
 }: {
-  options: string[];
+  options: OptionObjectType[] | string[];
   value?: string;
   onValueChange: (value?: string) => void;
   disabled?: boolean;
@@ -24,11 +29,21 @@ export const Select = ({
       </SelectTrigger>
       {!disabled && (
         <SelectContent>
-          {options.map((option) => (
-            <SelectItem key={option} value={option}>
-              {option}
-            </SelectItem>
-          ))}
+          {options.map((option) => {
+            if (typeof option === "string") {
+              return (
+                <SelectItem key={option} value={option}>
+                  {option}
+                </SelectItem>
+              );
+            }
+
+            return (
+              <SelectItem key={option.number} value={String(option.number)}>
+                {option.name}
+              </SelectItem>
+            );
+          })}
         </SelectContent>
       )}
     </SelectUI>
